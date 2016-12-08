@@ -1,5 +1,6 @@
 ﻿package odb_production;
 
+import java.util.ArrayList;
 import java.util.List;
 
 /*import com.db4o.ObjectContainer;
@@ -39,10 +40,12 @@ public class Program {
 			Specification spec04 = new Specification (0.3, "01.12.2005", "25.05.2009", mtr04);	
 			Specification spec05 = new Specification (0.15, "01.12.2015", "01.12.2016", mtr05);
 			
-			List<Specification> specList1=new ArrayList<Specification>(); 
-			specList1.Add(spec01); 
-			specList1.Add(spec02); 
-			specList2.Add(spec04); 
+			ArrayList<Specification> specList1=new ArrayList<Specification>(); 
+			specList1.add(spec01); 
+			specList1.add(spec02); 
+			
+			ArrayList<Specification> specList2=new ArrayList<Specification>(); 
+			specList2.add(spec04); 
 			
 			Product product01 = new Product ("01", "Подстаканник", true, "подставка под стакан", 58975,  specList1);
 			Product product02 = new Product ("02", "Бронзовая труба", true, "для водоснабжения, отопления, кондиционирования", 70000,  specList2);
@@ -51,8 +54,8 @@ public class Program {
 			Factory fctr02 = new Factory ("02", "Завод медных труб", "Industrijska zona BB 19250 Majdanpek, Serbia", "+381-30-453-000");
 			Factory fctr03 = new Factory ("03", "Кольчугинский завод цветных металлов", "601785, Владимирская обл.,г.Кольчугино,ул.Карла Маркса, д.25", "+7(49245)91-702");
 			
-			Production production01 = new Production ("2016", "150000", product01, fctr01);
-			Production production02 = new Production ("2016", "85000", product02, fctr01);
+			Production production01 = new Production (2016, 150000, product01, fctr01);
+			Production production02 = new Production (2016, 85000, product02, fctr01);
 			
 			db.store(mtr01);
 			db.store(mtr02);

@@ -1,5 +1,7 @@
 ﻿package odb_production;
 
+import java.util.ArrayList;
+
 // Изделие
 public class Product {
 
@@ -8,9 +10,9 @@ public class Product {
 	private boolean typeProduct;
 	private String goal;
 	private double sizeYear;
-	private List<Specification> specList; 
+	private ArrayList<Specification> specList; 
 	
-	public Product (String codeProduct, String nameProduct, boolean typeProduct, String goal, double sizeYear, List<Specification> specList) {
+	public Product (String codeProduct, String nameProduct, boolean typeProduct, String goal, double sizeYear, ArrayList<Specification> specList) {
 		this.codeProduct = codeProduct;
 		this.nameProduct = nameProduct;
 		this.typeProduct = typeProduct;
@@ -24,7 +26,7 @@ public class Product {
 	public boolean getTypeProduct() { return this.typeProduct;}
 	public String getGoal() { return this.goal;}
 	public double getSizeYear() { return this.sizeYear;}
-	public List<Specification> get SpecList() { return this.specList;}
+	public ArrayList<Specification> getSpecList() { return this.specList;}
 	
 	public String toString() {
 		return "Код изделия: "+codeProduct+
