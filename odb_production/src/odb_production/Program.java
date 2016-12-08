@@ -1,4 +1,4 @@
-package odb_production;
+п»їpackage odb_production;
 
 import java.util.List;
 
@@ -27,11 +27,11 @@ public class Program {
 		try {
 			// db = Db4o.openFile("books.data");
 
-			Material mtr01 = new Material("Алюминий", "цветной металл", "кг", "68.00 руб");
-			Material mtr02 = new Material("Медь", "цветной металл", "кг", "90.00 руб");
-			Material mtr03 = new Material("Латунь", "цветной металл", "кг", "55.00 руб");
-			Material mtr04 = new Material("Бронза", "цветной металл", "кг", "105.00 руб");
-			Material mtr05 = new Material("Никель", "цветной металл", "кг", "78.00 руб");	
+			Material mtr01 = new Material("РђР»СЋРјРёРЅРёР№", "С†РІРµС‚РЅРѕР№ РјРµС‚Р°Р»Р»", "РєРі", "68.00 СЂСѓР±");
+			Material mtr02 = new Material("РњРµРґСЊ", "С†РІРµС‚РЅРѕР№ РјРµС‚Р°Р»Р»", "РєРі", "90.00 СЂСѓР±");
+			Material mtr03 = new Material("Р›Р°С‚СѓРЅСЊ", "С†РІРµС‚РЅРѕР№ РјРµС‚Р°Р»Р»", "РєРі", "55.00 СЂСѓР±");
+			Material mtr04 = new Material("Р‘СЂРѕРЅР·Р°", "С†РІРµС‚РЅРѕР№ РјРµС‚Р°Р»Р»", "РєРі", "105.00 СЂСѓР±");
+			Material mtr05 = new Material("РќРёРєРµР»СЊ", "С†РІРµС‚РЅРѕР№ РјРµС‚Р°Р»Р»", "РєРі", "78.00 СЂСѓР±");	
 
 			Specification spec01 = new Specification (0.15, "01.12.2015", "01.12.2016", mtr01);
 			Specification spec02 = new Specification (0.3, "01.12.2005", "25.05.2009", mtr02);
@@ -44,12 +44,12 @@ public class Program {
 			specList1.Add(spec02); 
 			specList2.Add(spec04); 
 			
-			Product product01 = new Product ("01", "Подстаканник", true, "подставка под стакан", 58975,  specList1);
-			Product product02 = new Product ("02", "Бронзовая труба", true, "для водоснабжения, отопления, кондиционирования", 70000,  specList2);
+			Product product01 = new Product ("01", "РџРѕРґСЃС‚Р°РєР°РЅРЅРёРє", true, "РїРѕРґСЃС‚Р°РІРєР° РїРѕРґ СЃС‚Р°РєР°РЅ", 58975,  specList1);
+			Product product02 = new Product ("02", "Р‘СЂРѕРЅР·РѕРІР°СЏ С‚СЂСѓР±Р°", true, "РґР»СЏ РІРѕРґРѕСЃРЅР°Р±Р¶РµРЅРёСЏ, РѕС‚РѕРїР»РµРЅРёСЏ, РєРѕРЅРґРёС†РёРѕРЅРёСЂРѕРІР°РЅРёСЏ", 70000,  specList2);
 			
-			Factory fctr01 = new Factory ("01", "Кировский завод по обработке цв.металлов", "610016, Киров,Октябрьский пр.,18", "+7(8332)40-65-01");
-			Factory fctr02 = new Factory ("02", "Завод медных труб", "Industrijska zona BB 19250 Majdanpek, Serbia", "+381-30-453-000");
-			Factory fctr03 = new Factory ("03", "Кольчугинский завод цветных металлов", "601785, Владимирская обл.,г.Кольчугино,ул.Карла Маркса, д.25", "+7(49245)91-702");
+			Factory fctr01 = new Factory ("01", "РљРёСЂРѕРІСЃРєРёР№ Р·Р°РІРѕРґ РїРѕ РѕР±СЂР°Р±РѕС‚РєРµ С†РІ.РјРµС‚Р°Р»Р»РѕРІ", "610016, РљРёСЂРѕРІ,РћРєС‚СЏР±СЂСЊСЃРєРёР№ РїСЂ.,18", "+7(8332)40-65-01");
+			Factory fctr02 = new Factory ("02", "Р—Р°РІРѕРґ РјРµРґРЅС‹С… С‚СЂСѓР±", "Industrijska zona BB 19250 Majdanpek, Serbia", "+381-30-453-000");
+			Factory fctr03 = new Factory ("03", "РљРѕР»СЊС‡СѓРіРёРЅСЃРєРёР№ Р·Р°РІРѕРґ С†РІРµС‚РЅС‹С… РјРµС‚Р°Р»Р»РѕРІ", "601785, Р’Р»Р°РґРёРјРёСЂСЃРєР°СЏ РѕР±Р».,Рі.РљРѕР»СЊС‡СѓРіРёРЅРѕ,СѓР».РљР°СЂР»Р° РњР°СЂРєСЃР°, Рґ.25", "+7(49245)91-702");
 			
 			Production production01 = new Production ("2016", "150000", product01, fctr01);
 			Production production02 = new Production ("2016", "85000", product02, fctr01);
@@ -81,9 +81,9 @@ public class Program {
 			// Find all books of Tolstoy
 			/*
 			 * ObjectSet<Book> book1 = db.queryByExample(new Book(null,
-			 * "Толстой", 0, 0));
+			 * "РўРѕР»СЃС‚РѕР№", 0, 0));
 			 * 
-			 * System.out.println("Книги Л.Н. Толстого:");
+			 * System.out.println("РљРЅРёРіРё Р›.Рќ. РўРѕР»СЃС‚РѕРіРѕ:");
 			 * 
 			 * while (book1.hasNext()) { System.out.println(book1.next()); }
 			 * System.out.println(
@@ -96,7 +96,7 @@ public class Program {
 			 * boolean match(Book book) { return book.getPage() < 100; } });
 			 * 
 			 * System.out.println(
-			 * "Native Queries: Книги с количеством страниц < 100:");
+			 * "Native Queries: РљРЅРёРіРё СЃ РєРѕР»РёС‡РµСЃС‚РІРѕРј СЃС‚СЂР°РЅРёС† < 100:");
 			 * 
 			 * while (books.hasNext()) { System.out.println(books.next()); }
 			 * System.out.println(
@@ -109,10 +109,10 @@ public class Program {
 			 * books of Tolstoy ObjectSet <Book> result = db.query(new
 			 * Predicate<Book>() { public boolean match(Book book) { return
 			 * book.getPage() > 40 && book.getPage() < 100 ||
-			 * book.getAuthorName().equals("Толстой"); } });
+			 * book.getAuthorName().equals("РўРѕР»СЃС‚РѕР№"); } });
 			 * 
 			 * System.out.println(
-			 * "Advanced Native Queries: Книги с количеством страниц > 40, но < 100 или книги Л.Н. Толстого:"
+			 * "Advanced Native Queries: РљРЅРёРіРё СЃ РєРѕР»РёС‡РµСЃС‚РІРѕРј СЃС‚СЂР°РЅРёС† > 40, РЅРѕ < 100 РёР»Рё РєРЅРёРіРё Р›.Рќ. РўРѕР»СЃС‚РѕРіРѕ:"
 			 * );
 			 * 
 			 * while (result.hasNext()) { System.out.println(result.next()); }
@@ -129,7 +129,7 @@ public class Program {
 			 * System.out.println("SODA Query API:");
 			 * 
 			 * Query query=db.query(); query.constrain(Book.class);
-			 * query.descend("authorName").constrain("Толстой"); ObjectSet
+			 * query.descend("authorName").constrain("РўРѕР»СЃС‚РѕР№"); ObjectSet
 			 * result=query.execute(); listResult(result);
 			 * 
 			 * 
@@ -164,17 +164,17 @@ public class Program {
 
 	// store First Author
 	/*private static void storeFirstAuthor(ObjectContainer db) {
-		Authors author1 = new Authors("Шекспир");
-		Book book1 = new Book("Ромео и Джульетта", "Шекспир", 1798, 400);
+		Authors author1 = new Authors("РЁРµРєСЃРїРёСЂ");
+		Book book1 = new Book("Р РѕРјРµРѕ Рё Р”Р¶СѓР»СЊРµС‚С‚Р°", "РЁРµРєСЃРїРёСЂ", 1798, 400);
 		author1.setBook(book1);
 		db.store(author1);
 	}
 
 	// store Second Author
 	private static void storeSecondAuthor(ObjectContainer db) {
-		Book book2 = new Book("Граф Монте-Кристо", "Дюма", 1786, 2045);
+		Book book2 = new Book("Р“СЂР°С„ РњРѕРЅС‚Рµ-РљСЂРёСЃС‚Рѕ", "Р”СЋРјР°", 1786, 2045);
 		db.store(book2);
-		Authors author2 = new Authors("Дюма");
+		Authors author2 = new Authors("Р”СЋРјР°");
 		author2.setBook(book2);
 		db.store(author2);
 	}

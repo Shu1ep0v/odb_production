@@ -1,6 +1,6 @@
-package odb_production;
+п»їpackage odb_production;
 
-// Изделие
+// РР·РґРµР»РёРµ
 public class Product {
 
 	private String codeProduct;
@@ -27,11 +27,11 @@ public class Product {
 	public List<Specification> get SpecList() { return this.specList;}
 	
 	public String toString() {
-		return "Код изделия: "+codeProduct+
-				"\n Название: "+nameProduct+
-				"\n Относится ли к типовому: "+typeProduct+
-				"\n Цели изделия: "+goal+
-				"\n Годовой объем выпуска: "+sizeYear+
-				"\n Список спецификаций: "+specList; //работает не так как нужно, исправлю потом
+		return "РљРѕРґ РёР·РґРµР»РёСЏ: "+codeProduct+
+				"\n РќР°Р·РІР°РЅРёРµ: "+nameProduct+
+				"\n РћС‚РЅРѕСЃРёС‚СЃСЏ Р»Рё Рє С‚РёРїРѕРІРѕРјСѓ: "+typeProduct+
+				"\n Р¦РµР»Рё РёР·РґРµР»РёСЏ: "+goal+
+				"\n Р“РѕРґРѕРІРѕР№ РѕР±СЉРµРј РІС‹РїСѓСЃРєР°: "+sizeYear+
+				"\n РЎРїРёСЃРѕРє СЃРїРµС†РёС„РёРєР°С†РёР№: "+specList; //СЂР°Р±РѕС‚Р°РµС‚ РЅРµ С‚Р°Рє РєР°Рє РЅСѓР¶РЅРѕ, РёСЃРїСЂР°РІР»СЋ РїРѕС‚РѕРј
 	}	
 }

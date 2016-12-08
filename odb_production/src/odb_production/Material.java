@@ -1,6 +1,6 @@
-package odb_production;
+п»їpackage odb_production;
 
-// Материал
+// РњР°С‚РµСЂРёР°Р»
 public class Material {
 	
 	private String nameMaterial;
@@ -21,9 +21,9 @@ public class Material {
 	public String getPrice() { return this.price;}
 	
 	public String toString() {
-		return "Название: "+nameMaterial+
-				"\n Тип: "+type+
-				"\n Единица измерения: "+measure+
-				"\n Цена за единицу: "+price;
+		return "РќР°Р·РІР°РЅРёРµ: "+nameMaterial+
+				"\n РўРёРї: "+type+
+				"\n Р•РґРёРЅРёС†Р° РёР·РјРµСЂРµРЅРёСЏ: "+measure+
+				"\n Р¦РµРЅР° Р·Р° РµРґРёРЅРёС†Сѓ: "+price;
 	}	
 }

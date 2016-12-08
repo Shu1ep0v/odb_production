@@ -1,6 +1,6 @@
-package odb_production;
+п»їpackage odb_production;
 
-// Производство
+// РџСЂРѕРёР·РІРѕРґСЃС‚РІРѕ
 public class Production {
 
 	private int year;
@@ -21,9 +21,9 @@ public class Production {
 	public Factory getFctr() { return this.fctr;}
 	
 	public String toString() {
-		return "Год выпуска: "+year+
-				"\n Объем выпуска: "+size+
-				"\n Изделие: "+pr+
-				"\n Предприятие: "+fctr;
+		return "Р“РѕРґ РІС‹РїСѓСЃРєР°: "+year+
+				"\n РћР±СЉРµРј РІС‹РїСѓСЃРєР°: "+size+
+				"\n РР·РґРµР»РёРµ: "+pr+
+				"\n РџСЂРµРґРїСЂРёСЏС‚РёРµ: "+fctr;
 	}
 }

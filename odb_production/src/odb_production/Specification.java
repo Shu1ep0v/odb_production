@@ -1,6 +1,6 @@
-package odb_production;
+п»їpackage odb_production;
 
-// Спецификация
+// РЎРїРµС†РёС„РёРєР°С†РёСЏ
 public class Specification {
 	
 	private double countMaterial;
@@ -21,9 +21,9 @@ public class Specification {
 	public Material getMtr () { return this.mtr;}
 	
 	public String toString() {
-		return "Количество материала: "+countMaterial+
-				"\n Дата установления: "+dateEstablish+
-				"\n Дата отмены: "+dateCancel+
-				"\n Материал: "+mtr;
+		return "РљРѕР»РёС‡РµСЃС‚РІРѕ РјР°С‚РµСЂРёР°Р»Р°: "+countMaterial+
+				"\n Р”Р°С‚Р° СѓСЃС‚Р°РЅРѕРІР»РµРЅРёСЏ: "+dateEstablish+
+				"\n Р”Р°С‚Р° РѕС‚РјРµРЅС‹: "+dateCancel+
+				"\n РњР°С‚РµСЂРёР°Р»: "+mtr;
 	}	
 }

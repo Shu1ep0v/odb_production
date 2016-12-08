@@ -1,6 +1,6 @@
-package odb_production;
+п»їpackage odb_production;
 
-// Предприятие
+// РџСЂРµРґРїСЂРёСЏС‚РёРµ
 public class Factory { 
 
 	private String codeFactory;
@@ -21,9 +21,9 @@ public class Factory {
 	public String getPhone() { return this.phone;}
 	
 	public String toString() {
-		return "Код предприятия: "+codeFactory+
-				"\n Название: "+nameFactory+
-				"\n Адрес: "+address+
-				"\n Номер телефона: "+phone;
+		return "РљРѕРґ РїСЂРµРґРїСЂРёСЏС‚РёСЏ: "+codeFactory+
+				"\n РќР°Р·РІР°РЅРёРµ: "+nameFactory+
+				"\n РђРґСЂРµСЃ: "+address+
+				"\n РќРѕРјРµСЂ С‚РµР»РµС„РѕРЅР°: "+phone;
 	}
 }
