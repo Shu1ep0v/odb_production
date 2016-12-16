@@ -12,6 +12,8 @@ import com.db4o.query.Predicate;
 import com.db4o.query.Query;
 
 public class Program {
+	
+	private static ArrayList<Double> X;
 
 	public static void listResult(ObjectSet result) {
 		System.out.println(result.size());
@@ -26,60 +28,101 @@ public class Program {
 		db = Db4oEmbedded.openFile(Db4oEmbedded.newConfiguration(), dB4oFileName);
 
 		try {
-			// db = Db4o.openFile("books.data");
+			// db = Db4o.openFile("production.data");
 
-			Material mtr01 = new Material("Алюминий", "цветной металл", "кг", "68.00 руб");
+			Material mtr01 = new Material("Алюминий", "черный металл", "кг", "68.00 руб");
 			Material mtr02 = new Material("Медь", "цветной металл", "кг", "90.00 руб");
 			Material mtr03 = new Material("Латунь", "цветной металл", "кг", "55.00 руб");
 			Material mtr04 = new Material("Бронза", "цветной металл", "кг", "105.00 руб");
-			Material mtr05 = new Material("Никель", "цветной металл", "кг", "78.00 руб");	
+			Material mtr05 = new Material("Никель", "цветной металл", "кг", "78.00 руб");
 
-			Specification spec01 = new Specification (0.15, "01.12.2015", "01.12.2016", mtr01);
-			Specification spec02 = new Specification (0.3, "01.12.2005", "25.05.2009", mtr02);
-			Specification spec03 = new Specification (0.5, "04.04.2005", "01.12.2016", mtr03);
-			Specification spec04 = new Specification (0.3, "01.12.2005", "25.05.2009", mtr04);	
-			Specification spec05 = new Specification (0.15, "01.12.2015", "01.12.2016", mtr05);
-			
-			ArrayList<Specification> specList1=new ArrayList<Specification>(); 
-			specList1.add(spec01); 
-			specList1.add(spec02); 
-			
-			ArrayList<Specification> specList2=new ArrayList<Specification>(); 
-			specList2.add(spec04); 
-			
-			Product product01 = new Product ("01", "Подстаканник", true, "подставка под стакан", 58975,  specList1);
-			Product product02 = new Product ("02", "Бронзовая труба", true, "для водоснабжения, отопления, кондиционирования", 70000,  specList2);
-			
-			Factory fctr01 = new Factory ("01", "Кировский завод по обработке цв.металлов", "610016, Киров,Октябрьский пр.,18", "+7(8332)40-65-01");
-			Factory fctr02 = new Factory ("02", "Завод медных труб", "Industrijska zona BB 19250 Majdanpek, Serbia", "+381-30-453-000");
-			Factory fctr03 = new Factory ("03", "Кольчугинский завод цветных металлов", "601785, Владимирская обл.,г.Кольчугино,ул.Карла Маркса, д.25", "+7(49245)91-702");
-			
-			Production production01 = new Production (2016, 150000, product01, fctr01);
-			Production production02 = new Production (2016, 85000, product02, fctr01);
-			
-			db.store(mtr01);
-			db.store(mtr02);
-			db.store(mtr03);
-			db.store(mtr04);
-			db.store(mtr05);
-			
-			db.store(spec01);
-			db.store(spec02);
-			db.store(spec03);
-			db.store(spec04);
-			db.store(spec05);
-			
-			db.store(product01);
-			db.store(product02);
-			
-			db.store(fctr01);
-			db.store(fctr02);
-			db.store(fctr03);
-			
+			// Specification spec01 = new Specification (0.15, "01.12.2015",
+			// "01.12.2016", mtr01);
+			// Specification spec02 = new Specification (0.3, "01.12.2005",
+			// "25.05.2009", mtr02);
+			Specification spec03 = new Specification(0.5, "04.04.2005", "01.12.2016", mtr03);
+			// Specification spec04 = new Specification (0.3, "01.12.2005",
+			// "25.05.2009", mtr04);
+			Specification spec05 = new Specification(0.15, "01.12.2015", "01.12.2016", mtr05);
+
+			ArrayList<Specification> specList1 = new ArrayList<Specification>();
+			specList1.add(new Specification(0.15, "01.12.2015", "01.12.2016", mtr01));
+			specList1.add(new Specification(0.3, "01.12.2005", "25.05.2009", mtr02));
+
+			ArrayList<Specification> specList2 = new ArrayList<Specification>();
+			specList2.add(new Specification(0.3, "01.12.2005", "25.05.2009", mtr04));
+
+			Product product01 = new Product("01", "Подстаканник", true, "подставка под стакан", 58975, specList1);
+			Product product02 = new Product("02", "Бронзовая труба", true,
+					"для водоснабжения, отопления, кондиционирования", 70000, specList2);
+
+			Factory fctr01 = new Factory("01", "Кировский завод по обработке цв.металлов",
+					"610016, Киров,Октябрьский пр.,18", "+7(8332)40-65-01");
+			Factory fctr02 = new Factory("02", "Завод медных труб", "Industrijska zona BB 19250 Majdanpek, Serbia",
+					"+381-30-453-000");
+			Factory fctr03 = new Factory("03", "Кольчугинский завод цветных металлов",
+					"601785, Владимирская обл.,г.Кольчугино,ул.Карла Маркса, д.25", "+7(49245)91-702");
+
+			Production production01 = new Production(2016, 150000, product01, fctr01);
+			Production production02 = new Production(2016, 85000, product02, fctr01);
+
+			// db.store(mtr01);
+			// db.store(mtr02);
+			// db.store(mtr03);
+			// db.store(mtr04);
+			// db.store(mtr05);
+			//
+			// db.store(spec01);
+			// db.store(spec02);
+			// db.store(spec03);
+			// db.store(spec04);
+			// db.store(spec05);
+			//
+			// db.store(product01);
+			// db.store(product02);
+			//
+			// db.store(fctr01);
+			// db.store(fctr02);
+			// db.store(fctr03);
+
 			db.store(production01);
 			db.store(production02);
-						
+
 			db.commit();
+
+//			Production proto = new Production(0, 0, null, null);
+			//ObjectSet<Production> result = db.query(Production.class);//execute(proto);
+			//listResult(result);
+			
+			X = new ArrayList<>();
+			
+			final String typeName = "цветной металл";
+			ObjectSet<Production> results = db.query(new Predicate<Production>() {
+				private static final long serialVersionUID = 1L;
+
+				@Override
+				public boolean match(Production production) {
+					System.out.println("Вход");
+					int b = 0;
+					for (Specification s : production.getPr().getSpecList()) {
+						if (s.getMtr().getType().equals(typeName)) b++;
+					}
+					//return product.getNameProduct().equals(nameProduct);
+					X.add((double) (b/production.getPr().getSpecList().size()));
+					return true;
+				}
+			});
+			listResult(results);
+			
+			X.stream().forEach(e -> System.out.println(e + "\n"));
+
+			// Определить изделие, в которое входит больше всего материалов типа
+			// 'цветной металл'
+			/*
+			 * Query query=db.query(); query.constrain(Product.class);
+			 * query.descend("type").constrain("цветной металл"); ObjectSet
+			 * result=query.execute(); listResult(result);
+			 */
 
 			// Find all books of Tolstoy
 			/*
@@ -141,59 +184,51 @@ public class Program {
 
 			//
 			// store First Author
-			/*storeFirstAuthor(db);
+			/*
+			 * storeFirstAuthor(db);
+			 * 
+			 * // store Second Author storeSecondAuthor(db);
+			 * 
+			 * // retrieve All Authors ObjectSet<Authors> rAuthors =
+			 * retrieveAllAuthors(db); listResult(rAuthors);
+			 * 
+			 * 
+			 * // retrieve All Books ObjectSet<Book> rBook =
+			 * retrieveAllBooks(db); listResult(rBook);
+			 * 
+			 * 
+			 * }
+			 */
 
-			// store Second Author
-			storeSecondAuthor(db);
-
-			// retrieve All Authors
-			ObjectSet<Authors> rAuthors = retrieveAllAuthors(db);
-			listResult(rAuthors);
-
-
-			// retrieve All Books
-			ObjectSet<Book> rBook = retrieveAllBooks(db);
-			listResult(rBook);
-
-			
-		}*/
-
-		finally {
-			// if (db != null)
-			db.close();
+		} finally {
+			if (db != null)
+				db.close();
 		}
 
 	}
 
 	// store First Author
-	/*private static void storeFirstAuthor(ObjectContainer db) {
-		Authors author1 = new Authors("Шекспир");
-		Book book1 = new Book("Ромео и Джульетта", "Шекспир", 1798, 400);
-		author1.setBook(book1);
-		db.store(author1);
-	}
-
-	// store Second Author
-	private static void storeSecondAuthor(ObjectContainer db) {
-		Book book2 = new Book("Граф Монте-Кристо", "Дюма", 1786, 2045);
-		db.store(book2);
-		Authors author2 = new Authors("Дюма");
-		author2.setBook(book2);
-		db.store(author2);
-	}
-
-	// retrieve All Authors
-	private static ObjectSet<Authors> retrieveAllAuthors(ObjectContainer db) {
-		Authors proto = new Authors(null);
-		ObjectSet<Authors> result = db.queryByExample(proto);
-		return result;
-	}
-
-	// retrieve All Books
-	private static ObjectSet<Book> retrieveAllBooks(ObjectContainer db) {
-		Book proto = new Book(null, null, 0, 0);
-		ObjectSet<Book> result = db.queryByExample(proto);
-		return result;
-	}*/
+	/*
+	 * private static void storeFirstAuthor(ObjectContainer db) { Authors
+	 * author1 = new Authors("Шекспир"); Book book1 = new Book(
+	 * "Ромео и Джульетта", "Шекспир", 1798, 400); author1.setBook(book1);
+	 * db.store(author1); }
+	 * 
+	 * // store Second Author private static void
+	 * storeSecondAuthor(ObjectContainer db) { Book book2 = new Book(
+	 * "Граф Монте-Кристо", "Дюма", 1786, 2045); db.store(book2); Authors
+	 * author2 = new Authors("Дюма"); author2.setBook(book2); db.store(author2);
+	 * }
+	 * 
+	 * // retrieve All Authors private static ObjectSet<Authors>
+	 * retrieveAllAuthors(ObjectContainer db) { Authors proto = new
+	 * Authors(null); ObjectSet<Authors> result = db.queryByExample(proto);
+	 * return result; }
+	 * 
+	 * // retrieve All Books private static ObjectSet<Book>
+	 * retrieveAllBooks(ObjectContainer db) { Book proto = new Book(null, null,
+	 * 0, 0); ObjectSet<Book> result = db.queryByExample(proto); return result;
+	 * }
+	 */
 
 }

@@ -8,6 +8,10 @@ public class Production {
 	private Product pr;
 	private Factory fctr;
 	
+	public Production() {
+		// TODO Auto-generated constructor stub
+	}
+	
 	public Production (int year, double size, Product pr, Factory fctr) {
 		this.year = year;
 		this.size = size;
