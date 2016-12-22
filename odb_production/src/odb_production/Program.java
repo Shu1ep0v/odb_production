@@ -12,7 +12,7 @@ import com.db4o.query.Predicate;
 import com.db4o.query.Query;
 
 public class Program {
-	
+
 	private static ArrayList<Double> X;
 
 	public static void listResult(ObjectSet result) {
@@ -34,7 +34,7 @@ public class Program {
 			Material mtr02 = new Material("Медь", "цветной металл", "кг", "90.00 руб");
 			Material mtr03 = new Material("Латунь", "цветной металл", "кг", "55.00 руб");
 			Material mtr04 = new Material("Бронза", "цветной металл", "кг", "105.00 руб");
-			Material mtr05 = new Material("Никель", "цветной металл", "кг", "78.00 руб");
+			Material mtr05 = new Material("Золото", "драгоценный металл", "кг", "200.00 руб");
 
 			// Specification spec01 = new Specification (0.15, "01.12.2015",
 			// "01.12.2016", mtr01);
@@ -50,7 +50,7 @@ public class Program {
 			specList1.add(new Specification(0.3, "01.12.2005", "25.05.2009", mtr02));
 
 			ArrayList<Specification> specList2 = new ArrayList<Specification>();
-			specList2.add(new Specification(0.3, "01.12.2005", "25.05.2009", mtr04));
+			specList2.add(new Specification(0.3, "01.12.2005", "25.05.2009", mtr05));
 
 			Product product01 = new Product("01", "Подстаканник", true, "подставка под стакан", 58975, specList1);
 			Product product02 = new Product("02", "Бронзовая труба", true,
@@ -64,38 +64,22 @@ public class Program {
 					"601785, Владимирская обл.,г.Кольчугино,ул.Карла Маркса, д.25", "+7(49245)91-702");
 
 			Production production01 = new Production(2016, 150000, product01, fctr01);
-			Production production02 = new Production(2016, 85000, product02, fctr01);
-
-			// db.store(mtr01);
-			// db.store(mtr02);
-			// db.store(mtr03);
-			// db.store(mtr04);
-			// db.store(mtr05);
-			//
-			// db.store(spec01);
-			// db.store(spec02);
-			// db.store(spec03);
-			// db.store(spec04);
-			// db.store(spec05);
-			//
-			// db.store(product01);
-			// db.store(product02);
-			//
-			// db.store(fctr01);
-			// db.store(fctr02);
-			// db.store(fctr03);
+			Production production02 = new Production(2014, 85000, product02, fctr01);
 
 			db.store(production01);
 			db.store(production02);
 
 			db.commit();
 
-//			Production proto = new Production(0, 0, null, null);
-			//ObjectSet<Production> result = db.query(Production.class);//execute(proto);
-			//listResult(result);
-			
+			// Production proto = new Production(0, 0, null, null);
+			// ObjectSet<Production> result =
+			// db.query(Production.class);//execute(proto);
+			// listResult(result);
+
 			X = new ArrayList<>();
-			
+
+			// Определить изделия, в которые входят материалы типа
+			// 'цветной металл'
 			final String typeName = "цветной металл";
 			ObjectSet<Production> results = db.query(new Predicate<Production>() {
 				private static final long serialVersionUID = 1L;
@@ -105,19 +89,51 @@ public class Program {
 					System.out.println("Вход");
 					int b = 0;
 					for (Specification s : production.getPr().getSpecList()) {
-						if (s.getMtr().getType().equals(typeName)) b++;
+						if (s.getMtr().getType().equals(typeName))
+							b++;
 					}
-					//return product.getNameProduct().equals(nameProduct);
-					X.add((double) (b/production.getPr().getSpecList().size()));
+					// return product.getNameProduct().equals(nameProduct);
+					X.add((double) (b / production.getPr().getSpecList().size()));
 					return true;
 				}
 			});
-			listResult(results);
-			
-			X.stream().forEach(e -> System.out.println(e + "\n"));
+
+			// System.out.println ("Изделия, в которые входит материал типа
+			// 'цветной металл'");
+			// listResult(results);
 
 			// Определить изделие, в которое входит больше всего материалов типа
 			// 'цветной металл'
+			/*
+			 * int current = 0; while (results.hasNext()) { Production p =
+			 * results.next(); for (Specification s : p.getPr().getSpecList()) {
+			 * if (s.getMtr().getType().equals(typeName)) {
+			 * System.out.println(s.getMtr()); current++; } }
+			 * 
+			 * }
+			 */
+
+			// X.stream().forEach(e -> System.out.println(e + "\n"));
+
+			// Вывести список изделий, которые не производились в 2014 г.
+			Query query = db.query();
+			query.constrain(Production.class);
+			query.descend("year").constrain(2014).not();
+			ObjectSet<Production> result = query.execute();
+			// System.out.println ("Список изделий, которые не производились в
+			// 2014 г.");
+			// listResult(result);
+
+			// Вывести список изделий, которые не производились ранее 2014 г.
+			ObjectSet<Production> prods = db.query(new Predicate<Production>() {
+				private static final long serialVersionUID = 1L;
+
+				public boolean match(Production prods) {
+					return prods.getYear() > 2014;
+				}
+			});
+			listResult(prods);
+
 			/*
 			 * Query query=db.query(); query.constrain(Product.class);
 			 * query.descend("type").constrain("цветной металл"); ObjectSet
